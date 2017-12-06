@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read my Thoughts</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href=url("static/style.css");>-->
+
+    <style type="text/css">
+
+    body{
+        background-image: url("static/background4.png");
+    }
+
+    h1{
+    color: white;
+    padding-top: 50px;
+    text-decoration: underline;
+    }
+
+#parent {
+  height: 800px;
+}
+#child {
+  position: relative;
+  transform: translate(0px, -20%);
+  top: 20%;
+}
+
+#parent2 {
+  height: 800px;
+}
+#emojiSection {
+  position: relative;
+  transform: translate(0px, 0%);
+  top: 0%;
+}
+#wordSection {
+  position: relative;
+  transform: translate(0px, -5%);
+  top: 5%;
+}
+    </style>
+
+</head>
+<body>
+
+<script>
+function sendEmoji() {
+    var text = document.getElementById("thoughts").innerHTML;
+    document.getElementById("thoughts").innerHTML = text + " " + document.getElementById("emojis").innerHTML;
+}
+
+function sendWord1() {
+    var text = document.getElementById("thoughts").innerHTML;
+    document.getElementById("thoughts").innerHTML = text + " " + document.getElementById("pword1").value;
+}
+
+function sendWord2() {
+    var text = document.getElementById("thoughts").innerHTML;
+    document.getElementById("thoughts").innerHTML = text + " " + document.getElementById("pword2").value;
+}
+
+function sendWord3() {
+    var text = document.getElementById("thoughts").innerHTML;
+    document.getElementById("thoughts").innerHTML = text + " " + document.getElementById("pword3").value;
+}
+</script>
+
+<div class="container">
+
+    <h1 align="center"><b>Thought Prediction Engine</b></h1>
+
+  <div class="row">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-6" id="parent">
+
+
+    	<div class="form-group" id="child">
+        <form action="/" method="POST">
+            <h3>Put in your words</h3>
+      		<textarea class="form-control" rows="6" id="thoughts" name="tweet" style="font-size:200%;">{{content}}</textarea><br>
+            <button type="submit" class="btn default" style="float: right;">
+                <b>Predict Me</b>&nbsp&nbsp<span class="glyphicon glyphicon-share-alt"></span>
+            </button>
+
+          </form>
+    	</div>
+
+    </div>
+    <div class="col-md-1"></div>
+
+    <div class="col-md-4" id="parent2">
+
+        <br><h3 style="text-align: center;"><b>Our Predictions</b></h3><br>
+
+      <div class="form-group" id="emojiSection">
+
+          <!--<script>-->
+            <!--var emojiString = '{{ emoji }}';-->
+            <!--document.getElementById("emojis").innerHTML = emojiString;-->
+        <!--</script>-->
+
+        <h4 style="text-align: center;">Emoji</h4>
+      	<textarea class="form-control" rows="1" id="emojis" style="font-size:300%;" readonly>{{emoji}}</textarea>
+        <button type="button" class="btn btn-default" onclick="sendEmoji()"><span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+
+      </div>
+      <div class="form-group" id="wordSection">
+        <h4 style="text-align: center;">Words</h4><br>
+
+        <button type="button" class="btn btn-default" style="float: left" onclick="sendWord1()"><span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+		<div style="overflow: hidden; padding-left: .5em;">
+   			<input type="text" class="form-control" id="pword1" readonly value={{word1}}>
+		</div><br>
+
+        <button type="button" class="btn btn-default" style="float: left" onclick="sendWord2()"><span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+		<div style="overflow: hidden; padding-left: .5em;">
+   			<input type="text" class="form-control" id="pword2" readonly value={{word2}}>
+		</div><br>
+
+        <button type="button" class="btn btn-default" style="float: left" onclick="sendWord3()"><span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+		<div style="overflow: hidden; padding-left: .5em;">
+   			<input type="text" class="form-control" id="pword3" readonly value={{word3}}>
+		</div>
+
+    	</div>
+
+    </div>
+
+  </div>
+
+
+</div>
+<div class="container">
+    <div class="col-md-11"></div>
+    <div class="col-md-1">
+        <button type="button" class="btn btn-default">Developers</button>
+    </div>
+</div>
+
+</body>
+</html>

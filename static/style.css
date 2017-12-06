@@ -1,0 +1,22 @@
+#parent {
+  height: 900px;
+}
+#child {
+  position: relative;
+  transform: translate(0px, -50%);
+  top: 50%;
+}
+
+#parent2 {
+  height: 900px;
+}
+#emojiSection {
+  position: relative;
+  transform: translate(0px, -10%);
+  top: 10%;
+}
+#wordSection {
+  position: relative;
+  transform: translate(0px, -25%);
+  top: 25%;
+}
