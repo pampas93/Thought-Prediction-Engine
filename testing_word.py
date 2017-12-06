@@ -9,7 +9,7 @@ class Train_Word_Predictor:
         self.wp = WordPredictor()
         for corpus in nltk.corpus.gutenberg.fileids():
             self.wp.learn_from_text(nltk.corpus.gutenberg.raw(corpus))
-
+        print("Word prediction training ready")
     # def train_wordPredictor(self):
     #     #wp = WordPredictor()
 
