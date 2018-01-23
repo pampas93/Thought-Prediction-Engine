@@ -51,9 +51,27 @@ class Train_Word_Predictor:
 
         return finalWords
 
+
+def predictWords(text):
+
+    with open('WordPredictionFile', 'rb') as wf:
+        wordObject = pickle.loads(wf.read())
+
+    words = wordObject.predict(text).terms()[0:30]
+    finalWords = []
+    i = 0
+    for word in words:
+        if i == 4:
+            break
+        if word[0].isalpha():
+            finalWords.append(word[0])
+            i = i + 1
+
+    return finalWords
+
 if __name__ == '__main__':
 
-    tfWord = Train_Word_Predictor()
-    finalWords = tfWord.predict_fromDisk("Good morning");
-
+    # tfWord = Train_Word_Predictor()
+    # finalWords = tfWord.predict_fromDisk("Good morning");
+    finalWords = predictWords("Good morning to")
     print(finalWords)

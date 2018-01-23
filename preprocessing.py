@@ -1,10 +1,11 @@
 import re
-from Collect_Tweets import DOWNLOADED_TWEETS_PATH
+#from Collect_Tweets import DOWNLOADED_TWEETS_PATH
 from guess_language import guess_language
 import sys
 
 Processed_TWEETS_PATH = 'processedTweets.txt'
 store = open(Processed_TWEETS_PATH, 'a')
+DOWNLOADED_TWEETS_PATH = "tweets.txt"
 
 HASHTAGS_REGEX = re.compile('#')
 MENTIONS_REGEX = re.compile('@[^\s]+')
