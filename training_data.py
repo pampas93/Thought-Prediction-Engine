@@ -172,12 +172,11 @@ if __name__ == '__main__':
         len(set(dataset[2]))
     ))
 
-    #learn_with(SGDClassifier, dataset=dataset)
+    learn_with(SGDClassifier, dataset=dataset)
     learn_with(GaussianNB, dataset=dataset)
-    #learn_with(tree.DecisionTreeClassifier, dataset=dataset)
-
+    learn_with(tree.DecisionTreeClassifier, dataset=dataset)
+    learn_with(svm.SVC, params={'kernel':'sigmoid'}, dataset=dataset)
     # learn_with(RandomForestClassifier, dataset=dataset)
-    #learn_with(svm.SVC, params={'kernel':'sigmoid'}, dataset=dataset)
 
     # with open('vectorizer.pkl', 'rb') as f:
     #     vectorizer = pickle.loads(f.read())

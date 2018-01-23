@@ -19,7 +19,7 @@ tfWord = Train_Word_Predictor()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-
+    #return render_template('index.html', emoji="sunuuuuu")
     if request.method == 'GET':
         return render_template('index.html', emoji="")
     else:

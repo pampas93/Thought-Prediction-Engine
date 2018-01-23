@@ -20,22 +20,28 @@ def preprocess_tweet(tweet, pipeline):
     return tweet
 
 def preprocess_hashtags(tweet):
-    return HASHTAGS_REGEX.sub('', tweet)
+    return HASHTAGS_REGEX.sub('', tweet)    #Remove Hastags
 
 def preprocess_mentions(tweet):
-    return MENTIONS_REGEX.sub('', tweet)
+    return MENTIONS_REGEX.sub('', tweet)    #Remove Mentions
 
 def remove_extra_spaces(tweet):
-    return EXTRA_SPACES_REGEX.sub(' ', tweet).strip()
+    return EXTRA_SPACES_REGEX.sub(' ', tweet).strip()   #Remove Extra spaces
 
 def remove_hyperlinks(tweet):
-    return LINK_REGEX.sub('', tweet)
+    return LINK_REGEX.sub('', tweet)        #Remoce Hyperlinks
 
 def remove_haystack(tweet):
     return HAYSTACK_REGEX.sub('', tweet)
 
 def remove_unicode(tweet):
-    return ASCII_REGEX.sub('', tweet)
+    return ASCII_REGEX.sub('', tweet)       #Remove Unicodes
+
+# LINK_REGEX.sub('', tweet)        #Remoce Hyperlinks
+# ASCII_REGEX.sub('', tweet)       #Remove Unicodes
+# EXTRA_SPACES_REGEX.sub(' ', tweet).strip()   #Remove Extra spaces
+# MENTIONS_REGEX.sub('', tweet)    #Remove Mentions
+# HASHTAGS_REGEX.sub('', tweet)    #Remove Hastags
 
 def extract_emoji(tweet):
     emojis = EMOJI_NAME_REGEX.findall(tweet)

@@ -60,6 +60,7 @@ def process_tweets():
                 store.flush()
 
 
+
 class TwitterEmojiStreamer(TwythonStreamer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
