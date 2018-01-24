@@ -1,13 +1,11 @@
 import pickle
 from flask import Flask, request
 from flask import render_template
-from training_data import predict
+#
 import emoji
-import testing_word
-from testing_word import Train_Word_Predictor
+import main_connector
 
 app = Flask(__name__)
-
 
 
 with open('vectorizer.pkl', 'rb') as f:
@@ -25,10 +23,10 @@ def home():
         return render_template('index.html', emoji="")
     else:
         text = request.form['tweet']
-        emo = str(predict(text, vectorizer, classifier))
+        emo = str(main_connector.predict(text, vectorizer, classifier))
         #finalWords = tfWord.predict_words(text)
         #finalWords = []
-        finalWords = testing_word.predictWords(text)
+        finalWords = main_connector.predictWords(text)
         finalWords.append("")
         finalWords.append("")
         finalWords.append("")
